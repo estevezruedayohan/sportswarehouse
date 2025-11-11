@@ -1,0 +1,24 @@
+body {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  background-color: var(--white);
+  color: var(--black);
+}
+
+/* Centre an item (horizontally and vertically) */
+.full-centred {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.site-wrapper{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.visually-hidden{
+  display: none !important;
+}
+

@@ -1,0 +1,145 @@
+.site-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 65px;
+    font-size: 16px;
+}
+
+.site-header__brand{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    
+}
+
+.site-header__logo{
+    padding: 0 35px;
+    margin-bottom: 15px;
+}
+
+.site-header__logo img{
+    display: inline-block;
+    width: 100%;
+    max-width: 600px;
+    min-width: 290px;
+    height: auto;
+    display: block;
+}
+
+.search-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    width: 270px;
+    margin-bottom: 15px;
+    margin-right:15px
+}
+
+
+.search-input{
+    width: 220px;
+    height: 40px;
+    border: 1px solid var(--dark-blue);
+    border-radius: 25px;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.search-button{
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: var(--dark-blue);
+    border: none;
+    color: var(--white);
+}
+
+.cat-navigation{
+    padding: 18px 28px 18px 27px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--dark-blue);
+    max-width: 1200px;
+}
+
+.cat-links{
+    display: flex;
+    gap: 15px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.cat-navigation-item{
+    text-decoration: none;
+    border: 1px solid var(--light-blue);
+    border-radius: 5px;
+    width: 145px;
+    box-sizing: border-box;
+}
+
+
+.cat-navigation-item a{
+    padding: 8px;
+    text-decoration: none;
+    color: var(--white);
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+}
+
+.cat-navigation-item a:hover,
+.cat-navigation-item a:focus{
+    background-color: var(--light-blue);
+    color: var(--dark-blue);
+    /* border-radius:50px 0 0 50px; */
+}
+
+@media (min-width: 600px) {
+    
+    .cat-navigation{
+        margin-right: 0;
+    }
+    
+
+}
+
+@media (min-width: 960px) {
+
+    .site-header__brand{
+        flex-direction: row;
+        gap: 5.6em;
+        justify-content: space-between;
+    }
+
+    .cat-navigation{
+        margin-right: 0;
+        border-radius: 50px 0 0 50px;
+    }
+
+    .cat-links{
+        gap: 0px;
+        justify-content: start;
+    }
+
+    .cat-navigation-item{
+        padding: 5px 20px 5px 15px;
+        width: auto;
+        border: none;
+
+    }
+
+    .cat-navigation-item a{
+        padding: 5px 20px 5px 15px;
+    }
+
+    .cat-navigation-item a:hover,
+    .cat-navigation-item a:focus{
+        border-radius:50px 0 0 50px;
+}
+
+}

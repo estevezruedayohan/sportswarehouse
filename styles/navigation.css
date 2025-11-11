@@ -1,0 +1,144 @@
+/* Navigation */
+
+.site-nav{
+    position: fixed;
+    height: 50px;
+    width: 100vw;
+    background-color: var(--light-blue);
+    z-index: 60;
+    display: flex;
+    align-items: center;
+}
+.nav-content-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
+    max-width: 1200px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+
+.nav-toggle-wrapper{ /* Keep toggle on left */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--light-blue);
+}
+
+.nav-toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  color: var(--white);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.right-nav__item{ /* Keep kart on right */
+    display: flex;
+    align-items: center;
+}
+
+.desktop-nav__list{
+    display: none; /* Hidden on mobile */
+}
+
+.mobile-nav-wrapper{
+    /* margin: 0; */
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background-color: var(--light-blue);
+    z-index: 55;
+    padding: 0 10px 20px 10px;
+    width: 100%;
+    max-width: 360px;
+}
+
+
+#menu-icon-x{
+    display: none;
+}
+
+#menu-icon-bars, #visually-hidden {
+    display: inline-block;
+}
+
+#nav-toggle:checked ~ #mobile-nav-list{
+    display: flex;
+    flex-direction: column;
+}
+
+#nav-toggle:checked + label #menu-icon-bars {
+    display: none;
+}
+#nav-toggle:checked + label #menu-icon-x{
+    display: inline-block;
+}
+#nav-toggle:checked + label #visually-hidden {
+    display: none;
+}
+
+.mobile-nav__list li{
+    list-style: none;
+    padding: 5px 15px;
+    border-bottom: 1px solid var(--white);
+}
+
+.site-nav__item{
+    margin: 0 15px;
+}
+
+.mobile-nav__list li:not(:first-child){
+    margin-top: 15px;
+}
+
+.mobile-nav__list .site-nav__item a,
+.cart-link {
+    text-decoration: none;
+    display: block;
+    padding: 5px 0px 5px 45px;
+    color: var(--white);
+}
+
+.cart-count{
+    border-radius: 50px;
+    background-color: var(--black-15);
+    margin-left: 10px;
+    padding: 5px 15px 6px 17px;
+}
+
+@media (min-width: 960px){
+    
+    .nav-toggle-wrapper{
+        display: none; /* Hidden on desktop */
+    }
+    
+    .desktop-nav__list{
+        display: flex;
+        list-style: none;
+        /* flex-direction: flex-end; */
+        flex-grow: 1;
+    }
+    
+    .desktop-nav__list li:last-child{
+        margin-left: auto;
+        margin-right: 0;
+    }
+    
+    .site-nav__item a{
+        text-decoration: none;
+        color: var(--white);
+        /* padding: 10px 15px;
+        display: block; */
+    }
+
+}
