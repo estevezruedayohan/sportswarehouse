@@ -1,0 +1,91 @@
+{
+  "welcome": {
+    "text": "Hello! I'm the Sports Warehouse virtual assistant. I can provide quick answers to frequently asked questions. How can I help you today?",
+    "options": [
+      { "id": "categories", "label": "Categories" },
+      { "id": "brands", "label": "Brands" },
+      { "id": "returns", "label": "Returns" },
+      { "id": "faq", "label": "FAQ" }
+    ]
+  },
+  "nodes": {
+    "categories": {
+      "text": "Please choose a category:",
+      "options": [
+        { "id": "cat_shoes", "label": "Shoes" },
+        { "id": "cat_helmets", "label": "Helmets" },
+        { "id": "cat_pants", "label": "Pants" },
+        { "id": "cat_tops", "label": "Tops" },
+        { "id": "cat_balls", "label": "Balls" },
+        { "id": "cat_equipment", "label": "Equipment" }
+      ]
+    },
+    "brands": {
+      "text": "Our sponsored brands:",
+      "options": [
+        { "id": "brand_nike", "label": "Nike", "action": { "type": "external", "url": "https://www.nike.com" } },
+        { "id": "brand_adidas", "label": "Adidas", "action": { "type": "external", "url": "https://www.adidas.com" } },
+        { "id": "brand_asics", "label": "Asics", "action": { "type": "external", "url": "https://www.asics.com" } },
+        { "id": "brand_newbalance", "label": "New Balance", "action": { "type": "external", "url": "https://www.newbalance.com" } },
+        { "id": "brand_wilson", "label": "Wilson", "action": { "type": "external", "url": "https://www.wilson.com" } }
+      ]
+    },
+    "returns": {
+      "text": "Returns information and branch locations:",
+      "content": [
+        "Central Branch: 123 Fake Street, City. Tel: (01) 555-0101",
+        "North Branch: Avenue 45 #10-20, City. Tel: (01) 555-0202",
+        "Email: returns@sportswarehouse.example"
+      ],
+      "options": [
+        { "label": "Call Central Branch", "action": { "type": "phone", "payload": "+1-555-0101" } },
+        { "label": "Email Returns", "action": { "type": "info", "payload": "You can email returns@sportswarehouse.example and we will reply within 2 business days." } }
+      ]
+    },
+    "faq":{
+      "text": "Most common questions",
+      "options": [
+        {"id": "check_status_order", "label":"How can I check the status of my order?"},
+        {"id": "return_policy", "label":"What is your returns and exchange policy?"},
+        {"id": "payment_security", "label":"Are my payment details secure when I purchase through your website?"}
+      ]
+    },
+    "check_status_order":{
+      "text": "You can view the current status of your order by logging into your account and selecting 'My Orders' from the dashboard.\n If your order has already been dispatched, you will also see a tracking number and a link to the courier's tracking page. \n If you need further assistance, feel free to let me know and I'll be happy to help."
+    },
+    "return_policy":{
+      "text": "We offer a 30-day return or exchange on most items, provided they are unused, in their original packaging, and accompanied by proof of purchase. \n To start a return, simply submit a request through the Returns section in your account. \n Our team will guide you through the process and advise on the next steps, including return labels and timeframes."
+    },
+    "payment_security":{
+      "text": "Yes. All payments processed on our site are encrypted and handled using industry-standard security protocols. \n We do not store your full card details, and all sensitive information remains protected within our secure payment environment.\n If you ever have concerns about a transaction, please reach out and we'll investigate it promptly."
+    },
+    "cat_shoes": {
+      "text": "Types of Shoes:",
+      "options": [
+        { "id": "cat_shoes_running", "label": "Running" },
+        { "id": "cat_shoes_football", "label": "Football" }
+      ]
+    },
+    "cat_shoes_running": {
+      "text": "You can view Running products in our 'Shoes - Running' section. Would you like the link?",
+      "options": [
+        { "label": "Open Running Shoes", "action": { "type": "link", "url": "/products?category=shoes&sub=running", "newTab": false } },
+        { "label": "Contact Store", "action": { "type": "phone", "payload": "+1-555-0101" } }
+      ]
+    },
+    "cat_shoes_football": {
+      "text": "You can view Football products in our 'Shoes - Football' section.",
+      "options": [
+        { "label": "Open Football Shoes", "action": { "type": "link", "url": "/products?category=shoes&sub=football", "newTab": false } }
+      ]
+    }
+  },
+  "default": {
+    "text": "Sorry, I couldn't find an exact answer. Would you like to see the main options?",
+    "options": [
+      { "id": "categories", "label": "Categories" },
+      { "id": "brands", "label": "Brands" },
+      { "id": "returns", "label": "Returns" }
+    ]
+  }
+}

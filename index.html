@@ -14,9 +14,13 @@
     <link rel="stylesheet" href="./styles/brands-section.css">
     <link rel="stylesheet" href="./styles/site-footer.css">
     <link rel="stylesheet" href="./styles/copyright.css">
+    <!-- CSS Chatbot -->
+    <link rel="stylesheet" href="./styles/chatbot.css">
+
 
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <div class="site-wrapper">
         <nav class="site-nav">
             <div class="nav-content-container">
@@ -107,7 +111,7 @@
             </div>        
         </header>
 
-        <main class="site-main">
+        <main id="main-content" class="site-main">
             <div class="main-tittle-container">
                 <h2 aria-label="Products list" class="main-tittle">Featured Products</h2>
             </div>
@@ -295,5 +299,41 @@
                  Sports Warehouse. <br class="mobile-br"> All rights reserved. <br class="mobile-br">Website made by Awesomesauce Design <br class="mobile-br"> and Yohan Estevez. </p>
         </div>
     </div>
+    <!-- 1st Option Lyro AI Agent -->
+    <!-- <script src="//code.tidio.co/q7yg0iglnrgkvcm2gbzucbzyznew6ghz.js" async></script> -->
+
+    <!-- 2nd Option - Chatbot FAQ (No server) -->
+     
+    <div id="chatbot-wrapper">
+         <!-- Chatbot Button -->
+         <button id="chatbot-toggle" class="chatbot-toggle" aria-expanded="false" aria-controls="chatbot-container">💬 Chat</button>
+         
+         <!-- Chatbot Window -->
+         <div id="chatbot-container" class="chatbot-container" role="dialog" aria-label="Chat with virtual assistant" aria-hidden="true">
+             <div class="chatbot-header">🤖 Virtual Assistant</div>
+             <div id="chatbot-messages" class="chatbot-messages" role="log" aria-live="polite" aria-atomic="false"></div>
+             <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Ask me something..." aria-label="Chat input" />
+         </div>
+     </div>
+
+
+    <script src="js/chatbot.js"></script>
+    <script src="js/chatbot-ui.js"></script>
+    <script src="js/chatbot-tree.js"></script>
+
+        <!-- Tiny script to keep mobile nav aria-hidden in sync with the checkbox toggle -->
+        <script>
+            (function(){
+                const navToggle = document.getElementById('nav-toggle');
+                const mobileNav = document.getElementById('mobile-nav-list');
+                if (navToggle && mobileNav) {
+                    function sync() { mobileNav.setAttribute('aria-hidden', (!navToggle.checked).toString()); }
+                    // initial
+                    sync();
+                    navToggle.addEventListener('change', sync);
+                }
+            })();
+        </script>
+
 </body>
 </html>
