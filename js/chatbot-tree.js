@@ -194,8 +194,8 @@
     // Show node text — delegate multi-line rendering to showBotMessage
     if (node.text) {
       if (typeof window.showBotMessage === 'function') {
-        // pass the original string (may contain \n) so UI helper groups paragraphs
-        window.showBotMessage(node.text);
+        // wait for the typing animation + message to finish before continuing
+        await window.showBotMessage(node.text);
       } else {
         appendMessage('Bot: ' + node.text);
       }
@@ -206,7 +206,7 @@
     // Show content lines if exists — render as a grouped block when possible
     if (node.content && Array.isArray(node.content)) {
       if (typeof window.showBotMessage === 'function') {
-        window.showBotMessage(node.content);
+        await window.showBotMessage(node.content);
       } else {
         node.content.forEach(line => appendMessage('Bot: ' + line));
       }
@@ -248,7 +248,11 @@
     if (!data) return;
     // show welcome
     if (data.welcome && data.welcome.text) {
-      appendMessage('Bot: ' + data.welcome.text);
+      if (typeof window.showBotMessage === 'function') {
+        await window.showBotMessage(data.welcome.text);
+      } else {
+        appendMessage('Bot: ' + data.welcome.text);
+      }
     }
     if (data.welcome && data.welcome.options) {
       const qr = createQuickReplies(data.welcome.options);
