@@ -69,14 +69,14 @@
     "cat_shoes_running": {
       "text": "You can view Running products in our 'Shoes - Running' section. Would you like the link?",
       "options": [
-        { "label": "Open Running Shoes", "action": { "type": "link", "url": "/products?category=shoes&sub=running", "newTab": false } },
+        { "label": "Open Running Shoes", "action": { "type": "link", "url": "/", "newTab": false } },
         { "label": "Contact Store", "action": { "type": "phone", "payload": "+1-555-0101" } }
       ]
     },
     "cat_shoes_football": {
       "text": "You can view Football products in our 'Shoes - Football' section.",
       "options": [
-        { "label": "Open Football Shoes", "action": { "type": "link", "url": "/products?category=shoes&sub=football", "newTab": false } }
+        { "label": "Open Football Shoes", "action": { "type": "link", "url": "/", "newTab": false } }
       ]
     }
   },
