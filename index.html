@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="Content-Security-Policy-Report-Only" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline';"> -->
     <title>Sports Warehouse</title>
-    <link href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="./styles/settings.css">
     <link rel="stylesheet" href="./styles/generic.css">
     <link rel="stylesheet" href="./styles/navigation.css">
@@ -70,7 +71,18 @@
         <header class="site-header">
             <div class="site-header__brand">
                 <h1 aria-label="Company Name" class="site-header__logo">
-                    <img aria-hidden="true" src="images/statics/sports-warehouse-logo.svg" alt="Company Name logo">
+                    <img 
+                    aria-hidden="true" 
+                    srcset="images/statics/sp-logo-small.png 300w,
+                        images/statics/sp-logo-medium.png 600w,
+                    images/statics/sp-logo-large.png 960w"
+                sizes="(min-width: 600px) 100vw,
+                        (min-width: 960px) 50vw,
+                        33vw"
+                    src="images/statics/sp-logo-large.png" 
+                    alt="Company Name logo" 
+                    fetchpriority="high" 
+                    loading="eager">
                 </h1>
                 <search>
                     <form class="search-wrapper" action="#">
@@ -119,7 +131,7 @@
             <div class="gallery">
                 <article class="gallery__item gallery-card">
                     <div class="gallery-card__photo-frame full-centred">
-                        <img src="./images/products/prod-image.jpg" alt="Adidas Euro 16 Top Soccer Ball" class="gallery-card__photo">
+                        <img src="./images/products/prod-image.jpg" alt="Adidas Euro 16 Top Soccer Ball" class="gallery-card__photo" fetchpriority="high">
                     </div>
                     <div class="gallery-card__prices full-centred">
                         
@@ -236,7 +248,8 @@
 
         <!-- Newsletter section -->
 
-        <section class="newsletter-section">
+        <section class="newsletter-section" aria-label="Newsletter sign-up">
+            <h2 class="visually-hidden">Newsletter</h2>
             <div class="newsletter-container">
                 <div class="newsletter-text">
                     <p class="main-content__text">
@@ -256,6 +269,7 @@
         <section
             class="newsletter-popup"
             role="dialog"
+            id="newsletter-popup"
             aria-labelledby="newsletter-title"
             aria-modal="true"
             hidden
@@ -279,7 +293,7 @@
                 <label class="newsletter-popup__label" for="email-input">
                 Email address:
                 </label>
-                <input class="newsletter-popup__input" type="email" id="email-input" name="email" placeholder="your@email.com" required autocomplete="email" aria-required="true"/>
+                <input class="newsletter-popup__input" type="email" id="email-input" name="email" placeholder="your@email.com" required autocomplete="email" aria-required="true">
                 <span class="newsletter-popup__error" aria-live="polite"></span>
 
                 <button class="newsletter-popup__submit-btn" type="submit">
@@ -370,7 +384,7 @@
          <div id="chatbot-container" class="chatbot-container" role="dialog" aria-label="Chat with virtual assistant" aria-hidden="true">
              <div class="chatbot-header">🤖 Virtual Assistant</div>
              <div id="chatbot-messages" class="chatbot-messages" role="log" aria-live="polite" aria-atomic="false"></div>
-             <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Ask me something..." aria-label="Chat input" />
+             <input type="text" id="chatbot-input" class="chatbot-input" placeholder="Ask me something..." aria-label="Chat input">
          </div>
      </div>
 
@@ -380,18 +394,7 @@
     <script src="js/chatbot-tree.js"></script>
 
         <!-- Tiny script to keep mobile nav aria-hidden in sync with the checkbox toggle -->
-        <script>
-            (function(){
-                const navToggle = document.getElementById('nav-toggle');
-                const mobileNav = document.getElementById('mobile-nav-list');
-                if (navToggle && mobileNav) {
-                    function sync() { mobileNav.setAttribute('aria-hidden', (!navToggle.checked).toString()); }
-                    // initial
-                    sync();
-                    navToggle.addEventListener('change', sync);
-                }
-            })();
-        </script>
+        <script src="js/nav-init.js"></script>
 
 </body>
 </html>
