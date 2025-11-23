@@ -13,10 +13,13 @@
   --black-30: rgba(0, 0, 0, 0.30);
   --black-15: rgba(0, 0, 0, 0.15);
   --grey: #595959;
+  --mid-grey:#555555;
+  --dark-grey: #333333;
   --border-gray: #D0CFCF;
   --light-blue: #00ACED;
   --mid-blue: #006989;
   --dark-blue: #002936;
   --orange: #FB6806;
+  --red: #b3261e;
 
 }
