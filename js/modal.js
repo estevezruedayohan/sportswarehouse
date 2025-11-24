@@ -4,14 +4,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.querySelector(".newsletter-popup__close-btn");
   const overlay = document.querySelector(".newsletter-popup__overlay");
   const form = document.querySelector(".newsletter-popup__form");
-  const input = document.querySelector(".newsletter-popup__input");
-  const errorMsg = document.querySelector(".newsletter-popup__error");
+  const emailInput = document.getElementById("email-input");
+  const emailError = document.getElementById("email-error");
+  const nameInput = document.getElementById('name-input');
+  const nameError = document.getElementById('name-error');
+  const categorySelect = document.getElementById('category-select');
+  const categoryError = document.getElementById('category-error');
+
 
   const showPopup = () => {
     popup.hidden = false;
     requestAnimationFrame(() => {
       popup.classList.add("newsletter-popup--visible");
-      input.focus();
+      // input.focus();
+      if (nameInput) nameInput.focus();
     });
   };
 
@@ -21,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "transitionend",
       () => {
         popup.hidden = true;
-        errorMsg.textContent = "";
+        emailError.textContent = "";
         form.reset();
         openBtn.focus();
       },
@@ -37,17 +43,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const email = input.value.trim();
+    // Clear previous errors
+    [nameError, categoryError, emailError].forEach(span => { if (span) span.textContent = ''; });
+    [nameInput, categorySelect, emailInput].forEach(el => { if (el) el.removeAttribute('aria-invalid'); });
+    
+    // const email = input.value.trim();
+    // Basic validation
+    const nameVal = nameInput.value.trim();
+    const emailVal = emailInput.value.trim();
+    // const categoryVal = categorySelect.value;
 
-    if (!validateEmail(email)) {
-      errorMsg.textContent = "Please enter a valid email address.";
-      input.setAttribute("aria-invalid", "true");
-      input.focus();
+    if (!nameVal) {
+      nameError.textContent = 'Please enter your name.';
+      nameInput.setAttribute('aria-invalid', 'true');
+      nameInput.focus();
+      return;
+    }
+    
+    if (!emailVal || !validateEmail(emailVal)) {
+      emailError.textContent = 'Please enter a valid email address.';
+      emailInput.setAttribute('aria-invalid', 'true');
+      emailInput.focus();
       return;
     }
 
-    input.removeAttribute("aria-invalid");
-    errorMsg.textContent = "✅ Thank you for subscribing!";
+    // Building payload
+    // const payload = {
+    //   name: nameVal,
+    //   email: emailVal,
+    //   category: categoryVal || null
+    // };
+
+    // Send payload
+    // fetch('/newsletter-signup-endpoint', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(payload)
+    //   }).then(res => {
+      
+    //   }).catch(err => {
+      
+    //   });
+    // });
+
+    // input.removeAttribute("aria-invalid");
+    emailError.textContent = "✅ Thank you for subscribing!";
     setTimeout(() => hidePopup(), 1500);
   });
 

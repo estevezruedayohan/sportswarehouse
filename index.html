@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <meta http-equiv="Content-Security-Policy-Report-Only" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline';"> -->
     <title>Sports Warehouse</title>
-    <link rel="preconnect" href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="./styles/settings.css">
     <link rel="stylesheet" href="./styles/generic.css">
     <link rel="stylesheet" href="./styles/navigation.css">
@@ -290,11 +292,45 @@
             </p>
 
             <form class="newsletter-popup__form" novalidate>
+                <!-- Name field (required) -->
+                <div class="newsletter-popup__field newsletter-popup__field--name">
+                    <label class="newsletter-popup__label" for="name-input">Full name</label>
+                    <input
+                        class="newsletter-popup__input"
+                        type="text"
+                        id="name-input"
+                        name="name"
+                        placeholder="Your full name"
+                        required
+                        aria-required="true"
+                        aria-describedby="name-error"
+                    />
+                    <span id="name-error" class="newsletter-popup__error" aria-live="polite"></span>
+                </div>
+
+                <!-- Category select (optional or required if you prefer) -->
+                <div class="newsletter-popup__field newsletter-popup__field--category">
+                    <label class="newsletter-popup__label" for="category-select">Main product category of interest</label>
+                    <select
+                        id="category-select"
+                        name="category"
+                        class="newsletter-popup__select"
+                        aria-describedby="category-error"
+                    >
+                        <option value="">Choose a category</option>
+                        <option value="shoes">Shoes</option>
+                        <option value="helmets">Helmets</option>
+                        <option value="tops">Tops</option>
+                        <option value="equipment">Equipment</option>
+                    </select>
+                    <span id="category-error" class="newsletter-popup__error" aria-live="polite"></span>
+                </div>
+
                 <label class="newsletter-popup__label" for="email-input">
                 Email address:
                 </label>
                 <input class="newsletter-popup__input" type="email" id="email-input" name="email" placeholder="your@email.com" required autocomplete="email" aria-required="true">
-                <span class="newsletter-popup__error" aria-live="polite"></span>
+                <span id="email-error" class="newsletter-popup__error" aria-live="polite"></span>
 
                 <button class="newsletter-popup__submit-btn" type="submit">
                 Subscribe
