@@ -47,7 +47,10 @@
       "options": [
         {"id": "check_status_order", "label":"How can I check the status of my order?"},
         {"id": "return_policy", "label":"What is your returns and exchange policy?"},
-        {"id": "payment_security", "label":"Are my payment details secure when I purchase through your website?"}
+        {"id": "payment_security", "label":"Are my payment details secure when I purchase through your website?"},
+        {"id": "delivery_options", "label":"What are your shipping timeframes and delivery options?"},
+        {"id": "items_out_of_stock", "label":"What happens if an item I want is out of stock?"},
+        {"id": "reset_password", "label":"I'm having trouble accessing my account. How can I reset my password?"}
       ]
     },
     "check_status_order":{
@@ -58,6 +61,15 @@
     },
     "payment_security":{
       "text": "Yes. All payments processed on our site are encrypted and handled using industry-standard security protocols. \n We do not store your full card details, and all sensitive information remains protected within our secure payment environment.\n If you ever have concerns about a transaction, please reach out and we'll investigate it promptly."
+    },
+    "delivery_options":{
+      "text": "We offer standard and express delivery options across Australia. \nStandard delivery typically takes 3-5 business days, while express delivery is usually 1-2 business days, depending on your location. \nOnce your order has been dispatched, you will receive an email with your tracking details. If you have any concerns about your delivery, please let me know and I’ll be happy to assist."
+    },
+    "items_out_of_stock":{
+      "text": "If a product is listed as out of stock, you can select the “Notify Me” option on the product page to receive an alert as soon as it becomes available again. \nOur inventory is updated regularly, and most items are restocked within a short timeframe.\nIf you require assistance finding an alternative product, feel free to ask and I can guide you through suitable options."
+    },
+    "reset_password":{
+      "text": "If you cannot access your account, you can reset your password by selecting 'Forgot Password?' on the login page and following the instructions sent to your registered email address. \nIf you do not receive the email or continue to experience issues, let me know and I'll help you get back into your account as quickly as possible."
     },
     "cat_shoes": {
       "text": "Types of Shoes:",
